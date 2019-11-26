@@ -1,5 +1,5 @@
 {
-  "name": "rollup-plugin-strip-code",
+  "name": "rollup-plugin-remove-steal",
   "version": "0.2.7",
   "description": "A rollup plugin to remove parts of code based on regular expressions.",
   "main": "index.js",
