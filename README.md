@@ -52,6 +52,7 @@ yarn add rollup-plugin-strip-code --dev
 ```
 
 ## Example config
+that removes //!steal-remove-start till //!steal-remove-end
 
 Add to your `rollup.config.js`:
 
@@ -90,8 +91,9 @@ export default [
         exclude: 'node_modules/**'
       }),
       stripCode({
-        start_comment: 'START.TESTS_ONLY',
-        end_comment: 'END.TESTS_ONLY'
+        //start_comment: 'START.TESTS_ONLY',
+        //end_comment: 'END.TESTS_ONLY'
+        pattern: /(\/\/\!?steal-remove-start)[\s\S]*?(\/\/\!?steal-remove-end)/g
       })
     ]
   }
