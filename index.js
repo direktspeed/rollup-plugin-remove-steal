@@ -10,10 +10,9 @@ function removeSteal (options = {}) {
     name: 'removeSteal',
     transform (source, id) {
       if (!filter(id)) return
-      const defaultPattern = new RegExp(`(\/\/\!steal-remove-start)[\s\S]*(\/\/\!steal-remove-end)`, 'g')
       let map
-      const code = source.replace(pattern || defaultPattern, '')
-
+      const code = source.replace(/(\/\/\!?steal-remove-start)[\s\S]*?(\/\/\!?steal-remove-end)/g, '')
+      
       if (sourceMap !== false && sourcemap !== false) {
         const magicString = new MagicString(code)
         map = magicString.generateMap({ hires: true })
