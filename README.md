@@ -1,46 +1,6 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ffd0a188386439cb80e9b25adf1252f)](https://www.codacy.com/app/se-panfilov/rollup-plugin-strip-code?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=se-panfilov/rollup-plugin-strip-code&amp;utm_campaign=Badge_Grade)
-[![](https://api.codeclimate.com/v1/badges/9a43a0ab347c227334fa/maintainability)](https://codeclimate.com/github/se-panfilov/rollup-plugin-strip-code/maintainability)
-[![Build Status](https://travis-ci.org/se-panfilov/rollup-plugin-strip-code.svg?branch=master)](https://travis-ci.org/se-panfilov/rollup-plugin-strip-code)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/se-panfilov/rollup-plugin-strip-code/blob/master/LICENSE)
+This is a Fork of rollup-plugin-strip code that removes steal comments
 
-
-[![NPM](https://nodei.co/npm/rollup-plugin-strip-code.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/rollup-plugin-strip-code/)
-[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
-
-# rollup-plugin-strip-code
-
-A rollup plugin to remove parts of code based on regular expressions.
-
-Can be used to remove sections of code.
-
-### Why? And what it does?
-
-_Why_: For example you may want to remove code from production builds, but keep it in development and test environments.
-
-Usefull to remove code from production builds that are only needed in development and test environments, or to remove custom internationalized information.
-_What it does_: This plugin uses start and end comments to identify the code sections to strip out. For example:
-
-
-```js
-/*START.TESTS_ONLY*/
-VueNotifications._private = {} //'_private' object would be exist only during the test time
-VueNotifications._private.getVersion = getVersion // And I would be able to test 'getVersion' function (otherwise it won't be accesible because of the closure
-/*END.TESTS_ONLY*/
-```
-(example from [vue-notifications](https://github.com/se-panfilov/vue-notifications) library)
-
-or a bit simpler:
-
-```js
-/* test-code */
-removeMeInProduction();
-/* end-test-code */
-
-doNotRemoveMe();
-```
-
-**Attention**: You have to use `/* ... */` for such comments, not just `// ...`
+i will point out in this example how to use strip-code as this don't needs any options other then includ exclude
 
 ## Getting Started
 First, install `rollup-plugin-strip-code` as a development dependency:
